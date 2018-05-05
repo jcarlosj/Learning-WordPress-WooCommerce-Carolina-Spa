@@ -11,3 +11,315 @@ License URI:  	http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain:  	carolina_spa
 Tags:         	e-commerce, two-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, featured-images, full-width-template, threaded-comments, accessibility-ready, rtl-language-support, footer-widgets, sticky-post, theme-options
 */
+
+/* Código incrustado en la plantilla por el 'Customizr' de WordPress
+   en el elemento 'style' con id='storefront-style-inline-css' */
+.main-navigation ul li a,
+.site-title a,
+ul.menu li a,
+.site-branding h1 a,
+.site-footer .storefront-handheld-footer-bar a:not(.button),
+button.menu-toggle,
+button.menu-toggle:hover {
+	color: #333333;
+}
+
+button.menu-toggle,
+button.menu-toggle:hover {
+	border-color: #333333;
+}
+
+.main-navigation ul li a:hover,
+.main-navigation ul li:hover > a,
+.site-title a:hover,
+a.cart-contents:hover,
+.site-header-cart .widget_shopping_cart a:hover,
+.site-header-cart:hover > li > a,
+.site-header ul.menu li.current-menu-item > a {
+	color: #747474;
+}
+
+table th {
+	background-color: #f8f8f8;
+}
+
+table tbody td {
+	background-color: #fdfdfd;
+}
+
+table tbody tr:nth-child(2n) td,
+fieldset,
+fieldset legend {
+	background-color: #fbfbfb;
+}
+
+.site-header,
+.secondary-navigation ul ul,
+.main-navigation ul.menu > li.menu-item-has-children:after,
+.secondary-navigation ul.menu ul,
+.storefront-handheld-footer-bar,
+.storefront-handheld-footer-bar ul li > a,
+.storefront-handheld-footer-bar ul li.search .site-search,
+button.menu-toggle,
+button.menu-toggle:hover {
+	background-color: #e8e8e8;
+}
+
+p.site-description,
+.site-header,
+.storefront-handheld-footer-bar {
+	color: #404040;
+}
+
+.storefront-handheld-footer-bar ul li.cart .count,
+button.menu-toggle:after,
+button.menu-toggle:before,
+button.menu-toggle span:before {
+	background-color: #333333;
+}
+
+.storefront-handheld-footer-bar ul li.cart .count {
+	color: #e8e8e8;
+}
+
+.storefront-handheld-footer-bar ul li.cart .count {
+	border-color: #e8e8e8;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: #e102a8;
+}
+
+.widget h1 {
+	border-bottom-color: #e102a8;
+}
+
+body,
+.secondary-navigation a,
+.onsale,
+.pagination .page-numbers li .page-numbers:not(.current), .woocommerce-pagination .page-numbers li .page-numbers:not(.current) {
+	color: #6d6d6d;
+}
+
+.widget-area .widget a,
+.hentry .entry-header .posted-on a,
+.hentry .entry-header .byline a {
+	color: #727272;
+}
+
+a  {
+	color: #96588a;
+}
+
+a:focus,
+.button:focus,
+.button.alt:focus,
+.button.added_to_cart:focus,
+.button.wc-forward:focus,
+button:focus,
+input[type="button"]:focus,
+input[type="reset"]:focus,
+input[type="submit"]:focus {
+	outline-color: #96588a;
+}
+
+button, input[type="button"], input[type="reset"], input[type="submit"], .button, .added_to_cart, .widget a.button, .site-header-cart .widget_shopping_cart a.button {
+	background-color: #e102a8;
+	border-color: #e102a8;
+	color: #ffffff;
+}
+
+button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, .button:hover, .added_to_cart:hover, .widget a.button:hover, .site-header-cart .widget_shopping_cart a.button:hover {
+	background-color: #c8008f;
+	border-color: #c8008f;
+	color: #ffffff;
+}
+
+button.alt, input[type="button"].alt, input[type="reset"].alt, input[type="submit"].alt, .button.alt, .added_to_cart.alt, .widget-area .widget a.button.alt, .added_to_cart, .widget a.button.checkout {
+	background-color: #333333;
+	border-color: #333333;
+	color: #ffffff;
+}
+
+button.alt:hover, input[type="button"].alt:hover, input[type="reset"].alt:hover, input[type="submit"].alt:hover, .button.alt:hover, .added_to_cart.alt:hover, .widget-area .widget a.button.alt:hover, .added_to_cart:hover, .widget a.button.checkout:hover {
+	background-color: #1a1a1a;
+	border-color: #1a1a1a;
+	color: #ffffff;
+}
+
+.pagination .page-numbers li .page-numbers.current, .woocommerce-pagination .page-numbers li .page-numbers.current {
+	background-color: #e6e6e6;
+	color: #636363;
+}
+
+#comments .comment-list .comment-content .comment-text {
+	background-color: #f8f8f8;
+}
+
+.site-footer {
+	background-color: #3d3d3b;
+	color: #ffffff;
+}
+
+.site-footer a:not(.button) {
+	color: #eded93;
+}
+
+.site-footer h1, .site-footer h2, .site-footer h3, .site-footer h4, .site-footer h5, .site-footer h6 {
+	color: #333333;
+}
+
+#order_review {
+	background-color: #ffffff;
+}
+
+#payment .payment_methods > li .payment_box,
+#payment .place-order {
+	background-color: #fafafa;
+}
+
+#payment .payment_methods > li:not(.woocommerce-notice) {
+	background-color: #f5f5f5;
+}
+
+#payment .payment_methods > li:not(.woocommerce-notice):hover {
+	background-color: #f0f0f0;
+}
+
+@media screen and ( min-width: 768px ) {
+	.secondary-navigation ul.menu a:hover {
+		color: #595959;
+	}
+
+	.secondary-navigation ul.menu a {
+		color: #404040;
+	}
+
+	.site-header-cart .widget_shopping_cart,
+	.main-navigation ul.menu ul.sub-menu,
+	.main-navigation ul.nav-menu ul.children {
+		background-color: #d9d9d9;
+	}
+
+	.site-header-cart .widget_shopping_cart .buttons,
+	.site-header-cart .widget_shopping_cart .total {
+		background-color: #dedede;
+	}
+
+	.site-header {
+		border-bottom-color: #d9d9d9;
+	}
+}
+
+/* Código incrustado en la plantilla por el 'Customizr' de WordPress
+   en el elemento 'style' con id='storefront-woocommerce-style-inline-css' */
+a.cart-contents,
+.site-header-cart .widget_shopping_cart a {
+	color: #333333;
+}
+
+table.cart td.product-remove,
+table.cart td.actions {
+	border-top-color: #ffffff;
+}
+
+.woocommerce-tabs ul.tabs li.active a,
+ul.products li.product .price,
+.onsale,
+.widget_search form:before,
+.widget_product_search form:before {
+	color: #6d6d6d;
+}
+
+.woocommerce-breadcrumb a,
+a.woocommerce-review-link,
+.product_meta a {
+	color: #727272;
+}
+
+.onsale {
+	border-color: #6d6d6d;
+}
+
+.star-rating span:before,
+.quantity .plus, .quantity .minus,
+p.stars a:hover:after,
+p.stars a:after,
+.star-rating span:before,
+#payment .payment_methods li input[type=radio]:first-child:checked+label:before {
+	color: #96588a;
+}
+
+.widget_price_filter .ui-slider .ui-slider-range,
+.widget_price_filter .ui-slider .ui-slider-handle {
+	background-color: #96588a;
+}
+
+.order_details {
+	background-color: #f8f8f8;
+}
+
+.order_details > li {
+	border-bottom: 1px dotted #e3e3e3;
+}
+
+.order_details:before,
+.order_details:after {
+	background: -webkit-linear-gradient(transparent 0,transparent 0),-webkit-linear-gradient(135deg,#f8f8f8 33.33%,transparent 33.33%),-webkit-linear-gradient(45deg,#f8f8f8 33.33%,transparent 33.33%)
+}
+
+p.stars a:before,
+p.stars a:hover~a:before,
+p.stars.selected a.active~a:before {
+	color: #6d6d6d;
+}
+
+p.stars.selected a.active:before,
+p.stars:hover a:before,
+p.stars.selected a:not(.active):before,
+p.stars.selected a.active:before {
+	color: #96588a;
+}
+
+.single-product div.product .woocommerce-product-gallery .woocommerce-product-gallery__trigger {
+	background-color: #e102a8;
+	color: #ffffff;
+}
+
+.single-product div.product .woocommerce-product-gallery .woocommerce-product-gallery__trigger:hover {
+	background-color: #c8008f;
+	border-color: #c8008f;
+	color: #ffffff;
+}
+
+.button.loading {
+	color: #e102a8;
+}
+
+.button.loading:hover {
+	background-color: #e102a8;
+}
+
+.button.loading:after {
+	color: #ffffff;
+}
+
+@media screen and ( min-width: 768px ) {
+	.site-header-cart .widget_shopping_cart,
+	.site-header .product_list_widget li .quantity {
+		color: #404040;
+	}
+}
+/* Código agregado en el 'Customizr' de WordPress en la opción 'CSS Adicional' */
+@media screen and ( min-width: 768px ) {
+    .storefront-primary-navigation {
+    	background-color: #3d3d3b;
+    	color: #e4b2c6;
+    }
+    .main-navigation ul li a {
+    	color: white;
+    }
+    .main-navigation ul li a:hover, .main-navigation ul li:hover > a {
+    	color: yellow;
+    }
+}
