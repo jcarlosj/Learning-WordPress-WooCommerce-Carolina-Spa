@@ -366,3 +366,20 @@ p.stars.selected a.active:before {
 		font-size: 20px;
 	}
 }
+
+@media only screen and ( max-width: 768px ) {
+ 	button.menu-toggle {
+		background-color: #8ED4CC;
+	}
+	.storefront-primary-navigation .menu {
+		background-color: #8ED4CC;
+	}
+	.storefront-primary-navigation ul.menu {
+
+	}
+	.storefront-primary-navigation ul.menu li a {
+		color: white;
+		font-size: 20px;
+		padding-left: 20px;
+	}
+}
