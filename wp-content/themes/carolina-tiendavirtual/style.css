@@ -319,9 +319,6 @@ p.stars.selected a.active:before {
     .main-navigation ul li a {
     	color: white;
     }
-    .main-navigation ul li a:hover, .main-navigation ul li:hover > a {
-    	color: yellow;
-    }
 }
 
 /* Agregar estilos de la forma tradicional */
@@ -342,4 +339,30 @@ p.stars.selected a.active:before {
 }
 .single_add_to_cart_button.button {
 	height: 45px;
+}
+
+/* Cabecera */
+.site-header {
+	background-color: white;
+}
+
+@media only screen and ( min-width: 768px ) {
+	/* Menú Principal */
+	.storefront-primary-navigation {
+		background-color: #83D3CC;
+	}
+	/* Sub menú - Tienda */
+	.main-navigation ul.menu li.current_page_item a {
+		color: white;
+		font-weight: bold;
+	}
+	.main-navigation ul.nav-menu li:hover > a,
+	.main-navigation ul.menu ul.sub-menu {
+		background-color: #7CC1BA;
+	}
+	/* Mensaje producto agregado */
+	.woocommerce-message {
+		background-color: #8ED3CC;
+		font-size: 20px;
+	}
 }
