@@ -335,3 +335,11 @@ p.stars.selected a.active:before {
     filter: grayscale( 0% );
     transform: scale( 1.1, 1.1 );
 }
+
+/* Botón Añadir al carrito */
+.single_add_to_cart_button.fa.fa-shopping-cart::before {
+	margin-right: 10px;
+}
+.single_add_to_cart_button.button {
+	height: 45px;
+}
