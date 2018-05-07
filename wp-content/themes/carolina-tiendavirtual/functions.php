@@ -15,4 +15,17 @@
         return $simbolo;
     }
     add_filter( 'woocommerce_currency_symbol', 'carolina_spa_moneda', 5, 2 );    # Hook, <nombre-funcion>, prioridad, número decimales
+
+    # Modifica los créditos de la página
+    function carolina_spa_creditos() {
+        remove_action( 'storefront_footer', 'storefront_credit', 20 );           # Elimina los créditos por defecto de la plantilla
+        add_action( 'storefront_after_footer', 'carolina_spa_copyright', 20 );   # Agrega derechos personalizados de la página
+    }
+    add_action( 'init', 'carolina_spa_creditos' );
+
+    # Crea CopyRight Personalizado
+    function carolina_spa_copyright() {
+        echo '<div class="copyright">Derechos reservados &copy; ' .get_bloginfo( "name" ). ' ' .get_the_date( "Y" ). '</div>';
+    }
+
 ?>

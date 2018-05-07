@@ -530,3 +530,12 @@ p.stars.selected a.active:before {
 	font-weight: bold;
 	opacity: 1;
 }
+
+/* CopyRight */
+.copyright {
+	background-color: #E182A8;
+	color: white;
+	font-size: 20px;
+	padding: 2rem 0;
+	text-align: center;
+}
