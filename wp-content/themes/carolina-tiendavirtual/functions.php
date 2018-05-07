@@ -9,4 +9,10 @@
     }
     add_filter( 'loop_shop_per_page', 'productos_por_pagina', 20 );
 
+    # Cambia simbolo por código de divisa (abreviatura tres caracteres) correspondiente a moneda establecida en los ajustes del sitio, por ejemplo: pesos colombianos (COP)
+    function carolina_spa_moneda( $simbolo, $moneda ) {
+        $simbolo = "{$moneda } $";
+        return $simbolo;
+    }
+    add_filter( 'woocommerce_currency_symbol', 'carolina_spa_moneda', 5, 2 );    # Hook, <nombre-funcion>, prioridad, número decimales
 ?>
