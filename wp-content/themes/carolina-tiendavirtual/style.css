@@ -390,7 +390,7 @@ p.stars.selected a.active:before {
    	font-size: 1.4em;
 }
 .secondary-navigation ul li {
-	margin-top: -12px;	
+	margin-top: -12px;
 }
 .secondary-navigation a[href*="dribbble.com"],
 .secondary-navigation a[href*="facebook.com"],
@@ -500,4 +500,33 @@ p.stars.selected a.active:before {
 .secondary-navigation a[href*="pinterest.com"]:after {
   content: "\f231";
   color: #cb2027;
+}
+/* Carrito de compras barra de menú */
+.site-header-cart {
+	background-color: #7CC1BA;
+	padding: 0 10px;
+}
+.site-header-cart .woocommerce.widget_shopping_cart {
+	background-color: #F1F1F1;
+}
+.site-header-cart .woocommerce.widget_shopping_cart .buttons {
+	background: transparent;
+}
+.site-header-cart .woocommerce.widget_shopping_cart .mini-cart-item a,
+.site-header-cart .woocommerce.widget_shopping_cart .quantity {
+	color: #333333;
+}
+.site-header-cart .cart-contents {
+	color: white;
+}
+.site-header-cart .cart-contents:hover {
+	color: #F1F1F1;
+}
+.site-header-cart .cart-contents .amount {
+	font-size: 14px;
+}
+.site-header-cart .cart-contents .count {
+	font-size: 14px;
+	font-weight: bold;
+	opacity: 1;
 }
