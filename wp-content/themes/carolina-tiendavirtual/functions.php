@@ -61,6 +61,36 @@
     }
     add_filter( 'woocommerce_product_tabs', 'carolina_spa_remover_tabs', 11, 1 ); */
 
+    /* Enqueue scripts. */
+    function carolina_spa_scripts() {
+        # Implementa script 'AddThis!'
+        wp_register_script(
+          'add-this',                                  # Nombre que toma la función registrada en el Core de Wordpress
+          'http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5af1f9d29fc1daa4',  # Ruta del fichero en el directorio JS de la plantilla
+          array(),                                      # Dependencias (ficheros que deseamos que se carguen antes, vacio por ahora)
+          '1.0.0',                                      # Versión del Script
+          true                                          # Indica que carguen en el Footer (al final del documento que contiene el tema)
+        );
+        wp_enqueue_script( 'add-this' );
+    }
+    add_action( 'wp_enqueue_scripts', 'carolina_spa_scripts' );
+
+    # Mostrar AddThis!
+    function carolina_spa_addthis_buttons() {
+        ?>
+            <!-- Go to www.addthis.com/dashboard to customize your tools -->
+            <div class="addthis_inline_share_toolbox"></div>
+        <?php
+    }
+    add_action( 'woocommerce_after_add_to_cart_form', 'carolina_spa_addthis_buttons' );
+
+/*
+    function carolina_spa_script_addthis() {
+        ?>
+            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5af1f9d29fc1daa4"></script>
+        <?php
+    }
+    add_action( 'wp_footer', 'carolina_spa_script_addthis' );*/
 
     /*******************************************************************************
      * Setting a custom timeout value for cURL. Using a high value for priority to ensure the function runs after any other added to the same action hook.
