@@ -539,7 +539,7 @@ p.stars.selected a.active:before {
 	padding: 2rem 0;
 	text-align: center;
 }
-
+/* Banner Descuento */
 .page-template-template-homepage .type-page {
 	padding-bottom: 10px;
     margin-bottom: 10px;
@@ -547,4 +547,10 @@ p.stars.selected a.active:before {
 .page-template-template-homepage .banner-descuento {
 	padding: 0 0 20px 0;
 	margin: 10px 0 20px 0;
+}
+/* Tienda (Ancho por producto) */
+@media ( min-width: 768px ) {
+	.site-main .columns-4 ul.products li.product {
+	    width: 20%;
+	}
 }
