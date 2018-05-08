@@ -32,4 +32,11 @@
         echo '<div class="banner-descuento"><img src="' .get_stylesheet_directory_uri(). '/assets/images/cupon.jpg" /></div>';
     }
     add_action( 'homepage', 'carolina_spa_banner_descuento', 15 );
+    # Muestra 4 categorías en el 'Home Page'
+    function carolina_spa_categorias( $args ) {
+        $args[ 'limit' ] = 4;
+        $args[ 'columns' ] = 4;
+        return $args;
+    }
+    add_action( 'storefront_product_categories_args', 'carolina_spa_categorias', 100 );
 ?>
