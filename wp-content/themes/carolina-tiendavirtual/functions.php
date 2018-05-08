@@ -60,4 +60,29 @@
         return $tabs;
     }
     add_filter( 'woocommerce_product_tabs', 'carolina_spa_remover_tabs', 11, 1 ); */
+
+
+    /*******************************************************************************
+     * Setting a custom timeout value for cURL. Using a high value for priority to ensure the function runs after any other added to the same action hook.
+     ******************************************************************************/
+    // Setting a custom timeout value for cURL. Using a high value for priority to ensure the function runs after any other added to the same action hook.
+    // Establecer un valor de tiempo de espera personalizado para cURL. Usar un valor alto para prioridad para asegurar que la función se ejecute después de cualquier otra agregada al mismo gancho de acción.
+    add_action('http_api_curl', 'sar_custom_curl_timeout', 9999, 1);
+    function sar_custom_curl_timeout( $handle ){
+    	curl_setopt( $handle, CURLOPT_CONNECTTIMEOUT, 30 ); // 30 seconds. Too much for production, only for testing.
+    	curl_setopt( $handle, CURLOPT_TIMEOUT, 30 ); // 30 seconds. Too much for production, only for testing.
+    }
+    // Setting custom timeout for the HTTP request
+    // Establecer el tiempo de espera personalizado para la solicitud HTTP
+    add_filter( 'http_request_timeout', 'sar_custom_http_request_timeout', 9999 );
+    function sar_custom_http_request_timeout( $timeout_value ) {
+    	return 30; // 30 seconds. Too much for production, only for testing.
+    }
+    // Setting custom timeout in HTTP request args
+    // Configurar el tiempo de espera personalizado en argumentos de solicitud HTTP
+    add_filter('http_request_args', 'sar_custom_http_request_args', 9999, 1);
+    function sar_custom_http_request_args( $r ){
+    	$r['timeout'] = 30; // 30 seconds. Too much for production, only for testing.
+    	return $r;
+    }
 ?>
