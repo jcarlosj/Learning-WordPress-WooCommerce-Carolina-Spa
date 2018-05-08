@@ -27,5 +27,9 @@
     function carolina_spa_copyright() {
         echo '<div class="copyright">Derechos reservados &copy; ' .get_bloginfo( "name" ). ' ' .get_the_date( "Y" ). '</div>';
     }
-
+    # Agrega banner de descuento (imagen) al 'Home Page'
+    function carolina_spa_banner_descuento() {
+        echo '<div class="banner-descuento"><img src="' .get_stylesheet_directory_uri(). '/assets/images/cupon.jpg" /></div>';
+    }
+    add_action( 'homepage', 'carolina_spa_banner_descuento', 15 );
 ?>
