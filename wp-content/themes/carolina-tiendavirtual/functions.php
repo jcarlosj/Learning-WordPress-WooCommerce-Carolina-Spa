@@ -53,4 +53,11 @@
         return $filtro;
     }
     add_filter( 'woocommerce_catalog_orderby', 'carolina_spa_ordenar', 40 );
+    # Remueve pestaña 'descripción' de producto
+    function carolina_spa_remover_tabs( $tabs ) {
+        # echo '<pre>'; var_dump( $tabs ); echo '</pre>';
+        unset( $tabs[ 'description' ] );
+        return $tabs;
+    }
+    add_filter( 'woocommerce_product_tabs', 'carolina_spa_remover_tabs', 11, 1 );
 ?>
