@@ -46,4 +46,11 @@
         return $args;
     }
     add_action( 'storefront_product_categories_args', 'carolina_spa_categorias', 100 );
+    # Cambiar nombre del filtro de búsqueda
+    function carolina_spa_ordenar( $filtro ) {
+        //echo '<pre>'; var_dump( $filtro ); echo '</pre>';
+        $filtro[ 'date' ] = __( 'Ordenar productos nuevos primero' );        # Reescribe nombre del filtro de búsqueda de la tienda
+        return $filtro;
+    }
+    add_filter( 'woocommerce_catalog_orderby', 'carolina_spa_ordenar', 40 );
 ?>
