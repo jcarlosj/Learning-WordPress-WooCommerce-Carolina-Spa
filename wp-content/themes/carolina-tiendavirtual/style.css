@@ -578,3 +578,22 @@ span.ahorro .amount {
 footer span.ahorro {
 	color: white;
 }
+/* Sección 'Spa en Casa' en el 'Homepage' */
+.imagen-categoria {
+	margin-bottom: 30px;
+	position: relative;
+}
+.imagen-categoria h2 {
+	background-color: #E282A8;
+	color: white;
+	left: 0;
+	padding: 5px 20px;
+	position: absolute;
+	top: 30px;
+}
+.imagen-destacada {
+	height: 300px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 100%;
+}
