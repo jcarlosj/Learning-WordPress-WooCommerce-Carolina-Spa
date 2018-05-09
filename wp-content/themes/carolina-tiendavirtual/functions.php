@@ -112,6 +112,27 @@
         return $precio;
     }
     add_filter( 'woocommerce_get_price_html', 'carolina_spa_mostrar_descuento', 10, 2 );
+    # Modifica título de las pestañas del producto
+    function carolina_spa_modifica_encabezado_pestanias_producto( $tabs ) {
+        #echo '<pre>'; var_dump( $tabs ); echo '</pre>';
+        global $post;
+
+        # Valida si existe la pestaña 'description'
+        if( isset( $tabs[ 'description' ][ 'title' ] ) ) {
+            $tabs[ 'description' ][ 'title' ] = $post -> post_title;            # Cambia el valor predeterminado por el título del post (Nombre del Producto)
+        }
+        return $tabs;
+    }
+    add_filter( 'woocommerce_product_tabs', 'carolina_spa_modifica_encabezado_pestanias_producto', 10, 1 );
+    # Modifica encabezado de la descripción del producto
+    function carolina_spa_modifica_encabezado_descripcion_producto( $tabs ) {
+        #echo '<pre>'; var_dump( $tabs ); echo '</pre>';
+
+        global $post;        # Obtiene la variable $post global actual
+
+        return $post -> post_title;
+    }
+    add_filter( 'woocommerce_product_description_heading', 'carolina_spa_modifica_encabezado_descripcion_producto', 10, 1 );
 
     /*******************************************************************************
      * Setting a custom timeout value for cURL. Using a high value for priority to ensure the function runs after any other added to the same action hook.
