@@ -92,42 +92,26 @@
     }
     add_action( 'wp_footer', 'carolina_spa_script_addthis' );*/
 
-    # Muestra descuento en cantidad (Aplicando la regla del 100)
-    function carolina_spa_ahorro_cantidad( $precio, $producto ) {
+    # Muestra descuento en porcentaje o en dinero (Aplicando la regla del 100)
+    function carolina_spa_mostrar_descuento( $precio, $producto ) {
         #echo '<pre>'; var_dump( $producto ); echo '</pre>';
         #echo '<pre>'; var_dump( 'Precio corriente: ', $producto -> regular_price ); echo '</pre>';
         #echo '<pre>'; var_dump( 'Precio descuento: ', $producto -> sale_price ); echo '</pre>';
 
         if( $producto -> sale_price ) {
-            $ahorro = wc_price( $producto -> regular_price - $producto -> sale_price );    # 'wc_price' función de WooCommerce para dar formato al precio con un símbolo de moneda.
-
-            return $precio. sprintf( __( '<span class="ahorro"> Ahorro %s </span>', 'woocommerce' ), $ahorro );
-            /* NOTA: __() Permite realizar tradución del texto en WordPress
-                     'woocommerce' el dominio al que pertenece
-                     $ahorro valor que se desea imprimir */
+            if( $producto -> get_regular_price() < 100 ) {
+                $porcentaje = round( ( ( $producto -> regular_price - $producto -> sale_price ) / $producto -> regular_price ) * 100 );
+                return $precio. sprintf( __( '<span class="ahorro"> Ahorro %s &#37;</span>', 'woocommerce' ), $porcentaje );
+            }
+            else {
+                $valor = wc_price( $producto -> regular_price - $producto -> sale_price );    # 'wc_price' función de WooCommerce para dar formato al precio con un símbolo de moneda.
+                return $precio. sprintf( __( '<span class="ahorro"> Ahorro %s </span>', 'woocommerce' ), $valor );
+            }
         }
 
         return $precio;
     }
-    add_filter( 'woocommerce_get_price_html', 'carolina_spa_ahorro_cantidad', 10, 2 );
-
-    # Muestra descuento en cantidad (Aplicando la regla del 100)
-    function carolina_spa_porcentaje_ahorro( $precio, $producto ) {
-        #echo '<pre>'; var_dump( $producto ); echo '</pre>';
-        #echo '<pre>'; var_dump( 'Precio corriente: ', $producto -> regular_price ); echo '</pre>';
-        #echo '<pre>'; var_dump( 'Precio descuento: ', $producto -> sale_price ); echo '</pre>';
-
-        if( $producto -> sale_price ) {
-            $porcentaje = round( ( ( $producto -> regular_price - $producto -> sale_price ) / $producto -> regular_price ) * 100 );
-            return $precio. sprintf( __( '<span class="ahorro"> Ahorro %s &#37;</span>', 'woocommerce' ), $porcentaje );
-            /* NOTA: __() Permite realizar tradución del texto en WordPress
-                     'woocommerce' el dominio al que pertenece
-                     $ahorro valor que se desea imprimir */
-        }
-
-        return $precio;
-    }
-    add_filter( 'woocommerce_get_price_html', 'carolina_spa_porcentaje_ahorro', 10, 2 );
+    add_filter( 'woocommerce_get_price_html', 'carolina_spa_mostrar_descuento', 10, 2 );
 
     /*******************************************************************************
      * Setting a custom timeout value for cURL. Using a high value for priority to ensure the function runs after any other added to the same action hook.
