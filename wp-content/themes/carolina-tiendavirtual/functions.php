@@ -54,8 +54,8 @@
         if( $imagen_categoria ) {
             echo "
                 <div class=\"imagen-destacada\" style=\"background-image: url( '{$imagen_categoria[0]}' );\"></div>
-                    <h2 class=\"section-title\">Spa en Casa</h2>
-                ";
+                <h2 class=\"section-title\">Spa en Casa</h2>
+            ";
         }
 
         echo "
@@ -63,7 +63,6 @@
                     <div class=\"productos\">
                         {$shortcode}
                     </div>
-                </div>
             </div>";
 
         /* NOTA: 'do_shortcode' convierte una función en codigo en WordPress */

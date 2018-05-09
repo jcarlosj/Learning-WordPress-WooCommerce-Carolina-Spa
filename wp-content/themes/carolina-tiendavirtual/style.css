@@ -565,10 +565,10 @@ p.stars.selected a.active:before {
 span.ahorro {
 	border: 1px solid #4CAE4C;
 	color: #333333;
-	display: inline-block;
+	display: table;
 	font-size: 1em;
 	font-weight: 700;
-	margin-top: .8em;
+	margin: 20px auto 0 auto;
 	padding: .3em 1em;
 	text-align: right;
 }
@@ -579,11 +579,11 @@ footer span.ahorro {
 	color: white;
 }
 /* Sección 'Spa en Casa' en el 'Homepage' */
-.imagen-categoria {
+.spa-casa .imagen-categoria {
 	margin-bottom: 30px;
 	position: relative;
 }
-.imagen-categoria h2 {
+.spa-casa .imagen-categoria h2 {
 	background-color: #E282A8;
 	color: white;
 	left: 0;
@@ -591,9 +591,31 @@ footer span.ahorro {
 	position: absolute;
 	top: 30px;
 }
-.imagen-destacada {
+.spa-casa .imagen-destacada {
 	height: 300px;
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: 100%;
+}
+@media ( min-width: 992px ) {
+	.spa-casa::after {
+		clear: both;
+		content: '';
+		display: block;
+	}
+	.spa-casa .imagen-destacada {
+		height: 1740px;
+		background-attachment: fixed;
+	}
+	.spa-casa .imagen-categoria {
+		float: left;
+		width: 50%;
+	}
+	.spa-casa .productos {
+		float: right;
+		width: 45%;
+	}
+	.site-main .spa-casa .productos ul.products li.product {
+		width: 75%;
+	}
 }
