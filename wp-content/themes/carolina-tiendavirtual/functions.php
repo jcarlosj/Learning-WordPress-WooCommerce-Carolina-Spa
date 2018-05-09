@@ -92,6 +92,25 @@
     }
     add_action( 'wp_footer', 'carolina_spa_script_addthis' );*/
 
+    # Muestra descuento en cantidad (Aplicando la regla del 100)
+    function carolina_spa_ahorro_cantidad( $precio, $producto ) {
+        #echo '<pre>'; var_dump( $producto ); echo '</pre>';
+        #echo '<pre>'; var_dump( 'Precio corriente: ', $producto -> regular_price ); echo '</pre>';
+        #echo '<pre>'; var_dump( 'Precio descuento: ', $producto -> sale_price ); echo '</pre>';
+
+        if( $producto -> sale_price ) {
+            $ahorro = wc_price( $producto -> regular_price - $producto -> sale_price );    # 'wc_price' función de WooCommerce para dar formato al precio con un símbolo de moneda.
+
+            return $precio. sprintf( __( '<span class="ahorro"> Ahorro %s </span>', 'woocommerce' ), $ahorro );
+            /* NOTA: __() Permite realizar tradución del texto en WordPress
+                     'woocommerce' el dominio al que pertenece
+                     $ahorro valor que se desea imprimir */
+        }
+
+        return $precio;
+    }
+    add_filter( 'woocommerce_get_price_html', 'carolina_spa_ahorro_cantidad', 10, 2 );
+
     /*******************************************************************************
      * Setting a custom timeout value for cURL. Using a high value for priority to ensure the function runs after any other added to the same action hook.
      ******************************************************************************/

@@ -554,3 +554,12 @@ p.stars.selected a.active:before {
 	    width: 20%;
 	}
 }
+/* Ahorro */
+span.ahorro {
+	background-color: #06c406;
+	color: white;
+	display: inline-block;
+	font-weight: bold;
+	margin-top: 15px;
+	padding: 8px;
+}
