@@ -39,6 +39,36 @@
         echo '<div class="banner-descuento"><img src="' .get_stylesheet_directory_uri(). '/assets/images/cupon.jpg" /></div>';
     }
     add_action( 'homepage', 'carolina_spa_banner_descuento', 15 );
+    # Agrega nueva sección en el 'Home Page'
+    function carolina_spa_seccion_casa() {
+        $imagen = get_woocommerce_term_meta( 19, 'thumbnail_id', true );
+        $imagen_categoria = wp_get_attachment_image_src( $imagen, 'full' );
+        $imagen_fondo = $imagen_categoria[ 0 ];
+        $shortcode = do_shortcode( '[product_category columns="4" category="spa-en-casa"]' );        # Crea un
+
+        echo "
+            <div class=\"spa-casa\">
+                <div class=\"imagen-categoria\">";
+
+        # Valida si la categoría tiene imagen
+        if( $imagen_categoria ) {
+            echo "
+                <div class=\"imagen-destacada\" style=\"background-image: url( '{$imagen_categoria[0]}' );\"></div>
+                    <h2 class=\"section-title\">Spa en Casa</h2>
+                ";
+        }
+
+        echo "
+                </div>
+                    <div class=\"productos\">
+                        {$shortcode}
+                    </div>
+                </div>
+            </div>";
+
+        /* NOTA: 'do_shortcode' convierte una función en codigo en WordPress */
+    }
+    add_action( 'homepage', 'carolina_spa_seccion_casa', 30 );
     # Muestra 4 categorías en el 'Home Page'
     function carolina_spa_categorias( $args ) {
         $args[ 'limit' ] = 4;
