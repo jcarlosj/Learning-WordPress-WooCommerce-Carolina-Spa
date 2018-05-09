@@ -554,12 +554,27 @@ p.stars.selected a.active:before {
 	    width: 20%;
 	}
 }
+/* Oferta */
+.onsale {
+	background-color: #4CAE4C;
+	border: none;
+	color: white;
+	font-size: 1.2em;
+}
 /* Ahorro */
 span.ahorro {
-	background-color: #06c406;
-	color: white;
+	border: 1px solid #4CAE4C;
+	color: #333333;
 	display: inline-block;
-	font-weight: bold;
-	margin-top: 15px;
-	padding: 8px;
+	font-size: 1em;
+	font-weight: 700;
+	margin-top: .8em;
+	padding: .3em 1em;
+	text-align: right;
+}
+span.ahorro .amount {
+	font-weight: 400;
+}
+footer span.ahorro {
+	color: white;
 }

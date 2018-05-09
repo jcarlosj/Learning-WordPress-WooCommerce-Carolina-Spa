@@ -101,11 +101,11 @@
         if( $producto -> sale_price ) {
             if( $producto -> get_regular_price() < 100 ) {
                 $porcentaje = round( ( ( $producto -> regular_price - $producto -> sale_price ) / $producto -> regular_price ) * 100 );
-                return $precio. sprintf( __( '<span class="ahorro"> Ahorro %s &#37;</span>', 'woocommerce' ), $porcentaje );
+                return $precio. sprintf( __( '<br /><span class="ahorro"> Ahorro: %s &#37;</span>', 'woocommerce' ), $porcentaje );
             }
             else {
                 $valor = wc_price( $producto -> regular_price - $producto -> sale_price );    # 'wc_price' función de WooCommerce para dar formato al precio con un símbolo de moneda.
-                return $precio. sprintf( __( '<span class="ahorro"> Ahorro %s </span>', 'woocommerce' ), $valor );
+                return $precio. sprintf( __( '<span class="ahorro"> Ahorro: %s </span>', 'woocommerce' ), $valor );
             }
         }
 
