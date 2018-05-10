@@ -14,8 +14,8 @@
     function carolina_spa_agrega_video_producto_tab( $tabs ) {
         $tabs[ 'video' ] = array(
             'title'    => 'Video',
-            'priority' => 25,
-            'callback' => 'get_video_producto'
+            'priority' => 15,
+            'callback' => 'carolina_spa_get_video_producto'
         );
 
         #echo '<pre>'; var_dump( $tabs ); echo '</pre>';
@@ -24,8 +24,21 @@
     add_filter( 'woocommerce_product_tabs', 'carolina_spa_agrega_video_producto_tab', 11, 1 );
 
     # Video de Producto
-    function get_video_producto() {
-        echo 'Aquí desplegará el video de producto';
+    function carolina_spa_get_video_producto() {
+        global $post;
+        $video = get_field( 'video', $post -> ID );
+
+        # Valida si existe un video para el producto
+        if( $video ) {
+            echo "
+                <video controls autoplay loop>
+                    <source src=\"{$video}\">
+                </video>
+            ";
+        }
+        else {
+            echo 'No hay vídeo disponible';
+        }
     }
 
     # Limita la cantidad de productos que se van a mostrar en la tienda por página
