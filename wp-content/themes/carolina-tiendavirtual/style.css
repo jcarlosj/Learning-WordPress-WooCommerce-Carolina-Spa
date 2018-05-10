@@ -625,3 +625,17 @@ footer span.ahorro {
 	font-size: 20px;
 	font-style: italic;
 }
+
+/* Página: checkout (pagar la cuenta e irse) */
+.woocommerce-checkout .storefront-primary-navigation {
+	/* Barra de navegación principal */
+	display: none;
+}
+.woocommerce-checkout .site-search {
+	/* Buscador */
+	display: none;
+}
+.woocommerce-checkout .footer-widgets {
+	/* Widgets en el footer */
+	display: none;
+}
