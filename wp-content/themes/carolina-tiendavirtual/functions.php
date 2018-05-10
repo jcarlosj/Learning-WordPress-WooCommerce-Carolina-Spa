@@ -249,8 +249,22 @@
     function carolina_spa_agregar_campo_rfc( $campos ) {
         $campos[ 'billing' ][ 'billing_rfc' ] = array(
             # 'type' => 'text',    # Si se quita por defecto el valor del campo será de tipo 'text'
-            'css' => array( 'form-row-wide' ),
+            'class' => array( 'form-row-wide' ),
             'label' => 'RFC'
+        );
+        # Agrega campo de encuesta para preguntar por referidos (¿Donde escuchaste de nosotros?)
+        $campos[ 'billing' ][ 'billing_referido_por' ] = array(
+            'type' => 'select',    # Si se quita por defecto el valor del campo será de tipo 'text'
+            'class' => array( 'form-row-wide' ),
+            'label' => '¿Cómo te enteraste de nosotros?',
+            'options' => array(
+                'default'        => __( 'Seleccione...','woocommerce' ),
+                'television'     => __( 'Televisión','woocommerce' ),
+                'radio'          => __( 'Radio','woocommerce' ),
+                'prensa'         => __( 'Periódico','woocommerce' ),
+                'internet'       => __( 'Internet','woocommerce' ),
+                'redes_sociales' => __( 'Redes sociales','woocommerce' )
+            )
         );
         #echo "<pre>"; var_dump( $campos ); echo "</pre>";
         return $campos;
