@@ -12,9 +12,12 @@
 
     # Muestra vídeo de producto con ACF (Advanced Custom Fields) en un TAB o pestaña
     function carolina_spa_agrega_video_producto_tab( $tabs ) {
-        $tabs[ 'video' ][ 'title' ] = 'Video';
-        $tabs[ 'video' ][ 'priority' ] = 25;
-        $tabs[ 'video' ][ 'callback' ] = 'get_video_producto';
+        $tabs[ 'video' ] = array(
+            'title'    => 'Video',
+            'priority' => 25,
+            'callback' => 'get_video_producto'
+        );
+
         #echo '<pre>'; var_dump( $tabs ); echo '</pre>';
         return $tabs;
     }
