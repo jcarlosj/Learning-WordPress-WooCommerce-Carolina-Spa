@@ -202,6 +202,21 @@
     }
     add_filter( 'woocommerce_product_description_heading', 'carolina_spa_modifica_encabezado_descripcion_producto', 10, 1 );
 
+    # Agrega botón para vaciar carrito
+    function carolina_spa_boton_vaciar_carrito() {
+        echo '<a class="button" href="?vaciar-carrito=true">' .__('Vaciar carrito','woocommerce'). '</a>';
+    }
+    add_action( 'woocommerce_cart_actions', 'carolina_spa_boton_vaciar_carrito' );
+    # Funcionalidad para vaciar el carrito usando el botón de 'vaciar carrito'
+    function carolina_spa_vaciar_carrito() {
+        # Valida si viene algún valor por GET (En la URL)
+        if( isset( $_GET[ 'vaciar-carrito' ] ) ) {
+            global $woocommerce;
+            $woocommerce -> cart -> empty_cart();            # Usa objeto super global de woocommerce para acceder a la funcionalidad de vaciar el carrito
+        }
+    }
+    add_action( 'init', 'carolina_spa_vaciar_carrito' );
+
     /*******************************************************************************
      * Setting a custom timeout value for cURL. Using a high value for priority to ensure the function runs after any other added to the same action hook.
      ******************************************************************************/
