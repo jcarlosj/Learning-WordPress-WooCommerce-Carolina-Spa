@@ -57,7 +57,7 @@
 
     # Cambia simbolo por código de divisa (abreviatura tres caracteres) correspondiente a moneda establecida en los ajustes del sitio, por ejemplo: pesos colombianos (COP)
     function carolina_spa_moneda( $simbolo, $moneda ) {
-        $simbolo = "{$moneda } $";
+        $simbolo = "{$moneda} $";
         return $simbolo;
     }
     add_filter( 'woocommerce_currency_symbol', 'carolina_spa_moneda', 5, 2 );    # Hook, <nombre-funcion>, prioridad, número decimales
@@ -230,6 +230,20 @@
         }
     }
     add_action( 'woocommerce_check_cart_items', 'carolina_spa_banner_carrito', 10 );
+    # Eliminar un campo 'telefono' de la página del 'Checkout' (Pagar cuenta)
+    function carolina_spa_eliminar_campo_telefono( $campos ) {
+        #echo "<pre>"; var_dump( $campos ); echo "</pre>";
+        unset( $campos[ 'billing' ][ 'billing_phone' ] );        # Elimina el campo del teléfono del formulario
+
+        /* Cambia las clases para reducir los campos (Código postal, Región y Provincia ) y ponerlos juntos */
+        $campos[ 'billing' ][ 'billing_state' ][ 'class' ] = array( 'form-row-first' );
+        $campos[ 'billing' ][ 'billing_postcode' ][ 'class' ] = array( 'form-row-last' );
+        /* Cambia las clases para reducir los campos (Nombre de la Empresa, País ) y ponerlos juntos */
+        $campos[ 'billing' ][ 'billing_company' ][ 'class' ] = array( 'form-row-first' );
+        $campos[ 'billing' ][ 'billing_country' ][ 'class' ] = array( 'form-row-last' );
+        return $campos;
+    }
+    add_filter( 'woocommerce_checkout_fields', 'carolina_spa_eliminar_campo_telefono', 20, 1 );
 
     /*******************************************************************************
      * Setting a custom timeout value for cURL. Using a high value for priority to ensure the function runs after any other added to the same action hook.
