@@ -619,3 +619,9 @@ footer span.ahorro {
 		width: 75%;
 	}
 }
+/* Producto */
+.single-product div.product p.sub-titulo {
+	color: #969696;
+	font-size: 20px;
+	font-style: italic;
+}

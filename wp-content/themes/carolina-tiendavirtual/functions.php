@@ -2,6 +2,14 @@
     remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );    # Elimina el precio haciendo uso del hook.
     add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 1 );        # Agrega el precio haciendo uso del hook y estableciendo una nueva prioridad.
 
+    # Imprime subtitulo con ACF (Advanced Custom Fields)
+    function carolina_spa_agrega_subtitulo_producto() {
+        global $post;
+        $subtitulo = get_field( 'subtitulo', $post -> ID );
+        echo "<p class=\"sub-titulo\">{$subtitulo}</p>";
+    }
+    add_filter( 'woocommerce_single_product_summary', 'carolina_spa_agrega_subtitulo_producto', 6 );
+
     # Limita la cantidad de productos que se van a mostrar en la tienda por página
     function carolina_spa_productos_por_pagina( $productos ) {
         $productos = 16;
