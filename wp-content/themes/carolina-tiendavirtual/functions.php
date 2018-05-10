@@ -216,6 +216,20 @@
         }
     }
     add_action( 'init', 'carolina_spa_vaciar_carrito' );
+    # Muestra banner (Cupón) en el carrito de compras con ACF (Advanced Custom Fields)
+    function carolina_spa_banner_carrito() {
+        global $post;
+        $imagen = get_field( 'imagen', $post -> ID );
+
+        if( $imagen ) {
+            echo "
+                <div class=\"cupon-carrito\">
+                    <img src=\"{$imagen}\" />
+                </div>
+            ";
+        }
+    }
+    add_action( 'woocommerce_check_cart_items', 'carolina_spa_banner_carrito', 10 );
 
     /*******************************************************************************
      * Setting a custom timeout value for cURL. Using a high value for priority to ensure the function runs after any other added to the same action hook.
