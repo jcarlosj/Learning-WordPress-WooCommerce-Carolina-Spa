@@ -245,6 +245,18 @@
     }
     add_filter( 'woocommerce_checkout_fields', 'carolina_spa_eliminar_campo_telefono', 20, 1 );
 
+    # Agregar un campo 'telefono' de la página del 'Checkout' (Pagar cuenta)
+    function carolina_spa_agregar_campo_rfc( $campos ) {
+        $campos[ 'billing' ][ 'billing_rfc' ] = array(
+            # 'type' => 'text',    # Si se quita por defecto el valor del campo será de tipo 'text'
+            'css' => array( 'form-row-wide' ),
+            'label' => 'RFC'
+        );
+        #echo "<pre>"; var_dump( $campos ); echo "</pre>";
+        return $campos;
+    }
+    add_filter( 'woocommerce_checkout_fields', 'carolina_spa_agregar_campo_rfc', 40 );
+
     /*******************************************************************************
      * Setting a custom timeout value for cURL. Using a high value for priority to ensure the function runs after any other added to the same action hook.
      ******************************************************************************/
