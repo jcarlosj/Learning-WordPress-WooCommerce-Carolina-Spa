@@ -2,13 +2,28 @@
     remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );    # Elimina el precio haciendo uso del hook.
     add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 1 );        # Agrega el precio haciendo uso del hook y estableciendo una nueva prioridad.
 
-    # Imprime subtitulo con ACF (Advanced Custom Fields)
+    # Imprime subtitulo de producto con ACF (Advanced Custom Fields)
     function carolina_spa_agrega_subtitulo_producto() {
         global $post;
         $subtitulo = get_field( 'subtitulo', $post -> ID );
         echo "<p class=\"sub-titulo\">{$subtitulo}</p>";
     }
     add_filter( 'woocommerce_single_product_summary', 'carolina_spa_agrega_subtitulo_producto', 6 );
+
+    # Muestra vídeo de producto con ACF (Advanced Custom Fields) en un TAB o pestaña
+    function carolina_spa_agrega_video_producto_tab( $tabs ) {
+        $tabs[ 'video' ][ 'title' ] = 'Video';
+        $tabs[ 'video' ][ 'priority' ] = 25;
+        $tabs[ 'video' ][ 'callback' ] = 'get_video_producto';
+        #echo '<pre>'; var_dump( $tabs ); echo '</pre>';
+        return $tabs;
+    }
+    add_filter( 'woocommerce_product_tabs', 'carolina_spa_agrega_video_producto_tab', 11, 1 );
+
+    # Video de Producto
+    function get_video_producto() {
+        echo 'Aquí desplegará el video de producto';
+    }
 
     # Limita la cantidad de productos que se van a mostrar en la tienda por página
     function carolina_spa_productos_por_pagina( $productos ) {
