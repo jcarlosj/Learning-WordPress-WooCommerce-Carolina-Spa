@@ -47,6 +47,15 @@
     }
     add_action( 'homepage', 'carolina_spa_iconos_descripcion_ventajas', 15 );
 
+    # Mostrar imagen por defecto cuando un producto no posee una imagen destacada
+    function carolina_spa_no_image_producto( $url_image ) {
+        #echo "<pre>"; var_dump( $url_image ); echo "</pre>";
+
+        $url_image = get_stylesheet_directory_uri(). '/assets/images/no-image.png';
+        return $url_image;
+    }
+    add_filter( 'woocommerce_placeholder_img_src', 'carolina_spa_no_image_producto' );
+
     # Imprime subtitulo de producto con ACF (Advanced Custom Fields)
     function carolina_spa_agrega_subtitulo_producto() {
         global $post;
