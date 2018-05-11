@@ -2,6 +2,51 @@
     remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );    # Elimina el precio haciendo uso del hook.
     add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 1 );        # Agrega el precio haciendo uso del hook y estableciendo una nueva prioridad.
 
+    # Imprime íconos y descripciones de ventajas de la tienda con ACF (Advanced Custom Fields)
+    function carolina_spa_iconos_descripcion_ventajas() {
+        $ventajas = array(
+            'envio_gratuito' => array(
+                'icono'       => get_field( 'icono_envio_gratuito' ),
+                'descripcion' => get_field( 'descripcion_envio_gratuito' )
+            ),
+            'pago_seguros' => array(
+                'icono'       => get_field( 'icono_pagos_seguros' ),
+                'descripcion' => get_field( 'descripcion_pagos_seguros' )
+            ),
+            'devoluciones_reembolsos' => array(
+                'icono'       => get_field( 'icono_devoluciones_reembolsos' ),
+                'descripcion' => get_field( 'descripcion_devoluciones_reembolsos' )
+            )
+        );
+
+        # Crea la estructura HTML
+        echo "
+                    </main>
+                </div><!-- #primary .content-area -->
+            </div><!-- .col-full -->
+            <div class=\"ventajas\">
+                <div class=\"col-full\">
+        ";
+
+        foreach ( $ventajas as $key => $value ) {
+                echo "
+                <div class=\"columns-4\">
+                    {$value['icono']}
+                    <p>{$value['descripcion']}</p>
+                </div>
+                ";
+        }
+
+        echo "
+                </div>
+            </div>
+            <div class=\"col-full\">
+                <div class=\"content-area\">
+                    <div class class=\"site-main\">
+        ";
+    }
+    add_action( 'homepage', 'carolina_spa_iconos_descripcion_ventajas', 15 );
+
     # Imprime subtitulo de producto con ACF (Advanced Custom Fields)
     function carolina_spa_agrega_subtitulo_producto() {
         global $post;
