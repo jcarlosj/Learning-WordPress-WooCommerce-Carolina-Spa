@@ -11,35 +11,34 @@
             'order'         => 'DESC'
         );
         $entradas = new WP_Query( $args );
-
-        echo "
-            <div class=\"entradas-blog\">
-                <h2 class=\"section-title\">Últimas entradas</h2>
-                <ul>";
-        # Loop de WordPress
-        while( $entradas -> have_posts() ) {
-            $entradas -> the_post();
-            echo "
-                <li>" .the_post_thumbnail( 'shop_catalog' ).
-                    "<h3>" .get_the_title(). "</h3>
-                    <div class=\"contenido-entrada\">
-                        <header class=\"encabezado-entrada\">
-                            <p>Por: " .the_author(). " | " .get_the_time( get_option( 'date_format' ) ). " </p>
-                        </header>"
-                        .wp_trim_words( get_the_content(), 20, '' ).
-                    "<a href=\"" .get_the_permalink(). "\" class=\"button ver-mas\">Ver más &raquo;</a>
-                    </div>
-                </li>
-            ";
+        ?>
+            <div class="entradas-blog">
+                <h2 class="section-title">Últimas entradas</h2>
+                    <ul>
+        <?php
+            # Loop de WordPress
+            while( $entradas -> have_posts() ): $entradas -> the_post();
+        ?>
+                        <li>
+                            <?php the_post_thumbnail( 'shop_catalog' ); ?>
+                            <?php the_title( '<h3>', '</h3>' ); ?>
+                            <div class="contenido-entrada">
+                                <header class="encabezado-entrada">
+                                    <p>Por: <?php the_author(); ?> | <?php the_time( get_option( 'date_format' ) ); ?> </p>
+                                </header>
+                                <?php echo wp_trim_words( get_the_content(), 20, '' ); ?>
+                                <footer class="footer-entrada">
+                                    <a href="<?php the_permalink(); ?>" class="button ver-mas">Ver más &raquo;</a>
+                                </footer>
+                            </div>
+                        </li>
+        <?php
             /* NOTA: 'wp_trim_words' */
-        }
-        wp_reset_postdata();
-
-        echo "
+            endwhile; wp_reset_postdata();
+        ?>
                 </ul>
             </div>
-        ";
-
+        <?php
     }
     add_action( 'homepage', 'carolina_spa_seccion_entradas', 80 );
 
