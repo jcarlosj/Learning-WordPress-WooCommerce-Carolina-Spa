@@ -368,6 +368,29 @@
     }
     add_filter( 'woocommerce_checkout_fields', 'carolina_spa_agregar_campo_rfc', 40 );
 
+    # Muestra productos relacionados con una entrada
+    function carolina_spa_productos_relacionados_entrada() {
+        global $post;
+
+        $productos_relacionados = get_field( 'productos_relacionados', $post -> ID );
+
+        if( $productos_relacionados ) {
+            ?>
+                <div class="productos_relacionados">
+                    <h2 class="section-title">Productos relacionados</h2>
+                    <?php
+                        #echo '<pre>'; var_dump( $productos_relacionados ); echo '</pre>';
+                        $ids = join( $productos_relacionados, ', ' );                       # Convierte un 'Array' en una cadena
+                        echo do_shortcode( '[products ids="' .$ids. '" columns="8"]' );     # Crea un 'Shortcode' del 'post_type' -> 'products'
+                    ?>
+                </div>
+            <?php
+        }
+    }
+    add_action( 'storefront_post_content_after', 'carolina_spa_productos_relacionados_entrada' );
+
+
+
     /*******************************************************************************
      * Setting a custom timeout value for cURL. Using a high value for priority to ensure the function runs after any other added to the same action hook.
      ******************************************************************************/
