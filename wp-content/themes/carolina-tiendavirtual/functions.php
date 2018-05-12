@@ -2,6 +2,47 @@
     remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );    # Elimina el precio haciendo uso del hook.
     add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 1 );        # Agrega el precio haciendo uso del hook y estableciendo una nueva prioridad.
 
+    # Sección para imprimir entradas de blog en el 'Homepage'
+    function carolina_spa_seccion_entradas() {
+        $args = array(
+            'post_type'     => 'post',
+            'post_per_page' => 3,
+            'orderby'       => 'date',
+            'order'         => 'DESC'
+        );
+        $entradas = new WP_Query( $args );
+
+        echo "
+            <div class=\"entradas-blog\">
+                <h2 class=\"section-title\">Últimas entradas</h2>
+                <ul>";
+        # Loop de WordPress
+        while( $entradas -> have_posts() ) {
+            $entradas -> the_post();
+            echo "
+                <li>" .the_post_thumbnail( 'shop_catalog' ).
+                    "<h3>" .get_the_title(). "</h3>
+                    <div class=\"contenido-entrada\">
+                        <header class=\"encabezado-entrada\">
+                            <p>Por: " .the_author(). " | " .get_the_time( get_option( 'date_format' ) ). " </p>
+                        </header>"
+                        .wp_trim_words( get_the_content(), 20, '' ).
+                    "<a href=\"" .get_the_permalink(). "\" class=\"button ver-mas\">Ver más &raquo;</a>
+                    </div>
+                </li>
+            ";
+            /* NOTA: 'wp_trim_words' */
+        }
+        wp_reset_postdata();
+
+        echo "
+                </ul>
+            </div>
+        ";
+
+    }
+    add_action( 'homepage', 'carolina_spa_seccion_entradas', 80 );
+
     # Imprime sección de ventajas (íconos y descripciones) de la tienda con ACF (Advanced Custom Fields)
     function carolina_spa_iconos_descripcion_ventajas() {
         $ventajas = array(

@@ -327,6 +327,7 @@ h2.section-title {
 	font-size: 2.4em;
 	font-weight: 700;
 	text-transform: uppercase;
+	text-align: center;
 }
 h2.section-title::after {
 	background-color: #E182A8;
@@ -707,5 +708,5 @@ footer span.ahorro {
 @media only screen and (min-width: 768px ) {
 	.site-main {
 	    margin-bottom: -3.382em;
-	}	
+	}
 }
