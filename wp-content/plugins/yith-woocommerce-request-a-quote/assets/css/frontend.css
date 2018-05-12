@@ -1,0 +1,32 @@
+.ajax-loading,
+.product-remove a.yith-ywraq-item-remove.remove{
+    display: inline-block;
+}
+.product-remove .ajax-loading{
+    vertical-align: text-bottom;
+}
+
+.woocommerce .related ul li.product img, .woocommerce .related ul.products li.product img.ajax-loading{
+    width: auto;
+}
+
+input#rqa_privacy {
+    display:  table-cell;
+}
+
+#rqa_privacy_row label {
+    display: table-cell;
+    margin-left: 10px;
+    vertical-align: middle;
+    padding-left: 10px;
+}
+#rqa_privacy_row{
+    display: table;
+}
+.ywraq-privacy-wrapper {
+    background-color: #fafafa;
+    padding: 20px 20px 5px 20px;
+    margin-bottom:20px;
+    display: block;
+    clear: both;
+}

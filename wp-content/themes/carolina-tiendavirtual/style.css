@@ -322,6 +322,22 @@ p.stars.selected a.active:before {
 }
 
 /* Agregar estilos de la forma tradicional */
+h2.section-title {
+	color: black;
+	font-size: 2.4em;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+h2.section-title::after {
+	background-color: #E182A8;
+	content: '';
+	display: block;
+	height: .1em;
+	margin: .2em auto 0 auto;
+	width: 4em;
+}
+
+
 .storefront-product-section.storefront-product-categories ul.products li.product-category img {
     --webkit-filter: grayscale( 100% );
     filter: grayscale( 100% );
@@ -654,7 +670,6 @@ footer span.ahorro {
 	background-color: #E282A8;
 	color: white;
 	padding: 1em 0;
-	margin-bottom: 3em;
 }
 .ventajas .col-full::after,
 .ventajas .columns-4::after  {
@@ -687,4 +702,10 @@ footer span.ahorro {
 .ventajas .columns-4 p {
 	float: left;
 	margin-bottom: 0;
+}
+/* */
+@media only screen and (min-width: 768px ) {
+	.site-main {
+	    margin-bottom: -3.382em;
+	}	
 }

@@ -20,8 +20,9 @@
         );
 
         # Crea la estructura HTML
+
         echo "
-                    </main>
+                    </div>
                 </div><!-- #primary .content-area -->
             </div><!-- .col-full -->
             <div class=\"ventajas\">
@@ -42,8 +43,10 @@
             </div>
             <div class=\"col-full\">
                 <div class=\"content-area\">
-                    <div class class=\"site-main\">
+                    <div class=\"site-main\" role=\"main\">
         ";
+
+
     }
     add_action( 'homepage', 'carolina_spa_iconos_descripcion_ventajas', 15 );
 
