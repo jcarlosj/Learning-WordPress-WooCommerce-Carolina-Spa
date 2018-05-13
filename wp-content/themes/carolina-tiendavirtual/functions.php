@@ -174,7 +174,7 @@
     function carolina_spa_banner_descuento() {
         echo '<div class="banner-descuento"><img src="' .get_stylesheet_directory_uri(). '/assets/images/cupon.jpg" /></div>';
     }
-    add_action( 'homepage', 'carolina_spa_banner_descuento', 15 );
+    add_action( 'homepage', 'carolina_spa_banner_descuento', 55 );
     # Agrega nueva sección en el 'Home Page'
     function carolina_spa_seccion_casa() {
         $imagen = get_woocommerce_term_meta( 19, 'thumbnail_id', true );
@@ -390,6 +390,12 @@
     add_action( 'storefront_post_content_after', 'carolina_spa_productos_relacionados_entrada' );
 
 
+
+    # Muestra el 'Slider (BxSlider)' usando un 'Shortcode' en el 'Home Page'
+    function carolina_spa_bxslider() {
+        echo do_shortcode( '[wc-slider]' );            # Tecnica para imprimir un ShortCode
+    }
+    add_action( 'homepage', 'carolina_spa_bxslider', 5 );
 
     /*******************************************************************************
      * Setting a custom timeout value for cURL. Using a high value for priority to ensure the function runs after any other added to the same action hook.
