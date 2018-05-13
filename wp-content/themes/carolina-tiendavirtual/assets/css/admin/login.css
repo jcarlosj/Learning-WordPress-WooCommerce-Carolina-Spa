@@ -1,3 +1,51 @@
 body {
-    background-color: orange;
+    background-image: url( '../../images/bg-login.jpg' );
+    background-size: cover;
+}
+.login h1 a {
+    background-image: url( '../../images/logo-login.png' );
+    background-position: center center;
+    background-size: 200px;
+    height: 120px;
+    margin: 0;
+    width: 100%;
+}
+.login label {
+    color: black;
+}
+.login #backtoblog,
+.login #nav {
+    text-align: center;
+}
+.login #backtoblog a,
+.login #nav a,
+.login #backtoblog a:hover,
+.login #nav a:hover {
+    color: white;
+}
+.login.wp-core-ui .button-primary,
+.login.wp-core-ui .button-primary:active,
+.login.wp-core-ui .button-primary:focus {
+    background-color: #E182A8;
+    border-radius: 0;
+    border: 0;
+    box-shadow: none;
+    height: auto;
+    margin-top: 20px;
+    padding: 10px 30px;
+    text-shadow: none;
+    width: 100%;
+}
+.login.wp-core-ui .button-primary:hover {
+    background-color: #C8698F;
+}
+.login form,
+.login #login_error {
+    -webkit-box-shadow: 0px 32px 50px -14px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 32px 50px -14px rgba(0,0,0,0.75);
+    box-shadow: 0px 32px 50px -14px rgba(0,0,0,0.75);
+}
+.login a {
+    color: #E182A8;
+    font-weight: bold;
 }
