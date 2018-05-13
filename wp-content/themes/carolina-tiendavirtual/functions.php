@@ -389,13 +389,17 @@
     }
     add_action( 'storefront_post_content_after', 'carolina_spa_productos_relacionados_entrada' );
 
-
-
     # Muestra el 'Slider (BxSlider)' usando un 'Shortcode' en el 'Home Page'
     function carolina_spa_bxslider() {
         echo do_shortcode( '[wc-slider]' );            # Tecnica para imprimir un ShortCode
     }
     add_action( 'homepage', 'carolina_spa_bxslider', 5 );
+
+    # Agrega estilos a la página de 'login' de 'WordPress'
+    function carolina_spa_login_page() {
+        wp_enqueue_style( 'admin-login-css', get_stylesheet_directory_uri(). '/assets/css/admin/login.css' );    # Agrega estilos a la página de login 
+    }
+    add_action( 'login_enqueue_scripts', 'carolina_spa_login_page' );
 
     /*******************************************************************************
      * Setting a custom timeout value for cURL. Using a high value for priority to ensure the function runs after any other added to the same action hook.
