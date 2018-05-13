@@ -35,6 +35,37 @@ add_action( 'wp_enqueue_scripts', 'wc_slider_scripts' );
 # Crear 'ShortCode' para mostrar productos
 # Uso: [wc-slider]
 function wc_slider_shortcode() {
-    echo "Hola desde el Shorcode para WC-SLIDER";
+    $args = array(
+        'posts_per_page' => 10,
+        'post_type' => 'product'
+    );
+
+    $slider_productos = new WP_Query( $args );
+    echo '<ul>';
+
+    while( $slider_productos -> have_posts() ): $slider_productos -> the_post();
+        ?>
+            <li>
+                <a href="<?php the_permalink(); ?>">
+                <?php
+                    if( has_post_thumbnail( $slider_productos -> ID ) ) {
+                        the_post_thumbnail( 'shop_catalog' );
+                        /* Tamaños por defecto de imagenes para WooCommerce
+                           shop_thumbnail (100x100 hard cropped),
+                           shop_catalog (300x300 hard cropped),
+                           shop_single (600x600 hard cropped) */
+                    }
+                    else {
+                        $url_image = get_stylesheet_directory_uri(). '/assets/images/no-image.png';
+                        echo "<img src=\"$url_image\" width=\"300\" height=\"300\" />";
+                    }
+                    the_title( '<h2>', '</h2>' );
+                ?>
+                </a>
+            </li>
+        <?php
+    endwhile; wp_reset_postdata();
+    echo '</ul>';
+
 }
 add_shortcode( 'wc-slider', 'wc_slider_shortcode' );
