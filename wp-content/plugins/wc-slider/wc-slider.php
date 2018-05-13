@@ -28,7 +28,7 @@ function wc_slider_scripts() {
         wp_enqueue_script( 'jquery' );
     }
 
-    wp_enqueue_script( 'bxslider-js', WC_SLIDER_PATH. 'assets/js/jquery.bxslider.min.js', '', '4.2.1'  );
+    wp_enqueue_script( 'bxslider-js', WC_SLIDER_PATH. 'assets/js/jquery.bxslider.min.js', array( 'jquery' ), '4.2.1', true );
 }
 add_action( 'wp_enqueue_scripts', 'wc_slider_scripts' );
 
@@ -75,7 +75,14 @@ function wc_slider_execute_script() { ?>
     <script type="text/javascript">
         $ = jQuery .noConflict();
         $( document ) .ready( function() {
-            $( '.slider' ) .bxSlider();
+            $( '.slider' ) .bxSlider({
+                auto: true,
+                minSlides: 4,
+                maxSlides: 4,
+                slideWidth: 250,
+                slideMargin: 10,
+                moveSlides: 1
+            });
         });
     </script>
     <?php
