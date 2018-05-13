@@ -8,6 +8,7 @@ body {
     background-size: 200px;
     height: 120px;
     margin: 0;
+    outline : none;
     width: 100%;
 }
 .login label {
@@ -40,7 +41,8 @@ body {
     background-color: #C8698F;
 }
 .login form,
-.login #login_error {
+.login #login_error,
+.login .message {
     -webkit-box-shadow: 0px 32px 50px -14px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 32px 50px -14px rgba(0,0,0,0.75);
     box-shadow: 0px 32px 50px -14px rgba(0,0,0,0.75);
