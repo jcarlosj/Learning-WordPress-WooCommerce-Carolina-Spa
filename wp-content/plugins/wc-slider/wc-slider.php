@@ -37,7 +37,15 @@ add_action( 'wp_enqueue_scripts', 'wc_slider_scripts' );
 function wc_slider_shortcode() {
     $args = array(
         'posts_per_page' => 10,
-        'post_type' => 'product'
+        'post_type' => 'product',
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'product_visibility',
+                'field'    => 'name',
+                'terms'    => 'featured',
+                'operator' => 'IN'
+            )
+        )
     );
 
     $slider_productos = new WP_Query( $args );
