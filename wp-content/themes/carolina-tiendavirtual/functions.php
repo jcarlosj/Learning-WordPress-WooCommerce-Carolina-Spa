@@ -397,9 +397,15 @@
 
     # Agrega estilos a la página de 'login' de 'WordPress'
     function carolina_spa_login_page() {
-        wp_enqueue_style( 'admin-login-css', get_stylesheet_directory_uri(). '/assets/css/admin/login.css' );    # Agrega estilos a la página de login 
+        wp_enqueue_style( 'admin-login-css', get_stylesheet_directory_uri(). '/assets/css/admin/login.css' );    # Agrega estilos a la página de login
     }
     add_action( 'login_enqueue_scripts', 'carolina_spa_login_page' );
+
+    # Redirecciona enlace del logo del login al 'Homepage'
+    function carolina_spa_redirecciona_imagen_login_page() {
+        return home_url();
+    }
+    add_filter( 'login_headerurl', 'carolina_spa_redirecciona_imagen_login_page' );
 
     /*******************************************************************************
      * Setting a custom timeout value for cURL. Using a high value for priority to ensure the function runs after any other added to the same action hook.
