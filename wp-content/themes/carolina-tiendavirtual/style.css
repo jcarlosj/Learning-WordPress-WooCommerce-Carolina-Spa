@@ -747,3 +747,29 @@ footer span.ahorro {
 		margin-top: 1em;
 	}
 }
+/* Buscador */
+.site-search .widget_product_search form::before {
+	display: none;
+}
+.site-search .widget_product_search form input[type="search"] {
+	background-color: transparent;
+	box-shadow: none;
+	border: 2px solid #E182A8;
+	padding: 1em;
+	border-top-left-radius: 50px;
+	border-bottom-left-radius: 50px;
+	border-top-right-radius: 50px;
+	border-bottom-right-radius: 50px;
+}
+.widget_product_search form button[type="submit"] {
+	clip: unset;
+	right: 0;
+	left: auto;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	border-top-left-radius: 50px;
+	border-bottom-left-radius: 50px;
+	border-top-right-radius: 50px;
+	border-bottom-right-radius: 50px;
+}
