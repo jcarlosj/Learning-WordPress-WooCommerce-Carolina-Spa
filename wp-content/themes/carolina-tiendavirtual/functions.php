@@ -137,6 +137,14 @@
             echo 'No hay vídeo disponible';
         }
     }
+    # Cambia el texto del botón para agregar al Carrito
+    function carolina_spa_cambiar_texto_boton_agregar_carrito( $nombre ) {
+        #echo '<pre>'; var_dump( $nombre ); echo '</pre>';
+        $nombre = "Agregar";
+        return $nombre;
+    }
+    add_filter( 'woocommerce_product_add_to_cart_text', 'carolina_spa_cambiar_texto_boton_agregar_carrito' );
+    add_filter( 'woocommerce_product_single_add_to_cart_text', 'carolina_spa_cambiar_texto_boton_agregar_carrito' );
 
     # Limita la cantidad de productos que se van a mostrar en la tienda por página
     function carolina_spa_productos_por_pagina( $productos ) {
